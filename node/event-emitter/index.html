@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function comeTo(person,thing,cb) {
+      var msg  = `找${person}吃鸡，${thing},大吉大利`;
+      cb(msg)
+    }
+    comeTo('鸣哥','好厉害',(msg) => {
+      console.log(msg)
+      // 找妈妈
+    })
+  </script>
+</body>
+</html>
