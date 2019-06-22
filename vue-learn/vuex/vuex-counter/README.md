@@ -18,3 +18,8 @@ this.$store
 this.$router
 读
 写
+
+-data () 将会被state 取代
+data 只是自身状态的数据
+methids 改变状态的方法 会是actions
+

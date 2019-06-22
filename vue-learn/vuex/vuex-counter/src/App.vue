@@ -1,30 +1,37 @@
 <template>
   <div id="app">
-  <button @click="decrement">-</button>
-   {{$store.state.count}}
-   <button @click="increment">+</button>
+    clicked {{$store.state.count}} times, count is {{eventOrOdd}}
+    <button @click="decrement">-</button>
+    {{$store.state.count}}
+    <button @click="increment">+</button>
+    <button @click="incrementIfOdd">increment if odd</button>
+    <button @click="incrementAsync">Increment async</button>
   </div>
 </template>
 
 <script>
 //借
-import {mapActions} from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 export default {
-  
-  name: 'App',
-  methods:mapActions([
-    'increment',
-    'decrement'
+  name: "App",
+  computed: mapGetters(["eventOrOdd"]), 
+  // 如果有多处要用到奇偶判断怎么办
+  // eventOrOdd() {
+  //   return this.$store.state.count % 2 === 0 ? 'even':'odd'
+  // }
+  methods: mapActions([
+    "increment",
+    "decrement",
+    "incrementIfOdd",
+    "incrementAsync"
   ]),
-  components:{
-
-  }
-}
+  components: {}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
