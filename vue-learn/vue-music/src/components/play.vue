@@ -77,7 +77,7 @@ export default {
     return {
       playList: [1],
       playing:true,
-      playingLyric: 'hdwuhduwhdwudh',
+      playingLyric: '小康哥最帅',
       currentSong:{},
       
       currentTime:3,
@@ -198,17 +198,17 @@ export default {
               border 10px solid rgba(255,255,255,0.1)
             .play
               animation rotate 20s linear infinite
-          .playing-lyric-wrapper
-            width 80%
-            margin 30px auto 0 auto 
-            overflow hidden
-            text-align center
-            .playing-lyric
-              height px2rem(40px)
-              line-height px2rem(40px)
-              font-size 14px
-              color hsla(0,0%,100%,0.5)
-  
+        .playing-lyric-wrapper
+          width 80%
+          margin 30px auto 0 auto 
+          overflow hidden
+          text-align center
+          .playing-lyric
+            height px2rem(40px)
+            line-height px2rem(40px)
+            font-size 14px
+            color hsla(0,0%,100%,0.5)
+
   .mini-player
     display flex
     align-items center

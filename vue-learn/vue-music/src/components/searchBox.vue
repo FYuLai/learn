@@ -1,6 +1,6 @@
 <template>
   <div class="search-box">
-    <i class="icon icon-search">&#x638;</i>
+    <i class="icon icon-search">&#xe638;</i>
     <input type="text" ref="query" v-model="query" class="box" :placeholder="placeholder">
     <i class="icon icon-dismiss" v-show="query" @click="clear"></i>
   </div>

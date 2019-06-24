@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "今天下雨了",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "body": "hello world",
+      "postId": "1",
+      "id": 2
+    },
+    {
+      "body": "hello world",
+      "postId": "1",
+      "huhuh": "hhhhhhh",
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
