@@ -7,35 +7,40 @@
 </template>
 
 <script>
+import { debounce } from '@/common/util.js'
 export default {
-  props:{
-    placeholder:{
-      type:String,
-      default:'搜索歌曲、歌手'
+  props: {
+    placeholder: {
+      type: String,
+      default: '搜索歌曲、歌手'
     }
   },
-  data() {
+  data () {
     return {
-      query:''
+      query: ''
     }
   },
-  methods:{
-    clear() {
-      this.query= ''
+  methods: {
+    clear () {
+      this.query = ''
     },
-    setQuery(query) {
+    setQuery (query) {
       this.query = query
     },
     blur () {
       this.$refs.query.blur()
     }
+  },
+  created() {
+    this.$watch('query', debounce((newQuery) => {
+      this.$emit('query', newQuery)
+    }))
   }
-
 }
 </script>
 
 <style lang="stylus" scoped>
-@import '../assets/css/function'
+@import '../assets/css/function';
 .search-box 
   display flex
   align-items center
@@ -62,6 +67,4 @@ export default {
     font-size 20px
     margin-right px2rem(10px)
     color #6b6a6a
-
 </style>
-

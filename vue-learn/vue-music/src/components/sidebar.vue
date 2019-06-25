@@ -7,9 +7,9 @@
         </div>
         <div class="name">蜗牛</div>
       </div>
-      <div class="menu" @click="_hidebar">
-        <ul >
-          <li >
+      <div class="menu">
+        <ul>
+          <li @click="_hidebar">
             <router-link to="/user" @click="_hidebar">
               <i class="icon">&#xe63c;</i>
               <span>个人中心</span>
@@ -53,24 +53,24 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      // showSidebar: false
     }
   },
   computed: {
-    ...mapGetters(['showSidebar'])
+    ...mapGetters([
+      'showSidebar'
+    ]),
+    
   },
   methods: {
     _hidebar () {
-      this.$store.dispatch('setShowSidebar',false)
+      console.log(123)
+      this.$store.dispatch('setShowSidebar', false)
     }
   }
-  //  methods:mapActions([
-  //   'setShowSidebar' ,
-  // ]) 
 }
 </script>
 
