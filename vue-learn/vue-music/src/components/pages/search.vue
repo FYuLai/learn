@@ -2,25 +2,26 @@
   <div class="search">
     <div class="search-box-wrapper">
       <!-- 搜索框 -->
-      <v-search-box @query="onQueryChange"></v-search-box>
+      <v-search-box @query="onQueryChange" ref="searchBox"></v-search-box>
     </div>
     <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
       <v-scroll class="shortcut" ref="shortcut" :data="shortcut" :refreshDelay="refreshDelay">
         <div>
-      <!-- 热门搜索 -->
+          <!-- 热门搜索 -->
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
             <ul>
               <li
-              class="item"
-              v-for="(item, index) in hotKey" 
-              :key="index"
-              @click="addQuery(item.first)">
-              <span>{{item.first}}</span>
+                class="item"
+                v-for="(item, index) in hotKey"
+                :key="index"
+                @click="addQuery(item.first)"
+              >
+                <span>{{item.first}}</span>
               </li>
             </ul>
           </div>
-      <!-- 搜索历史 -->
+          <!-- 搜索历史 -->
           <div class="search-history" v-show="searchHistory.length">
             <h1 class="title">
               <span class="text">搜索历史</span>
@@ -29,14 +30,14 @@
               </span>
             </h1>
             <!-- 搜索历史列表 -->
-            <v-search-list :searches="searchHistory"></v-search-list>
+            <v-search-list :searches="searchHistory" @select="addQuery"></v-search-list>
           </div>
         </div>
       </v-scroll>
     </div>
     <!-- 搜索结果 -->
     <div class="search-result" v-show="query" ref="searchResult">
-      <v-suggest :query="query"></v-suggest>
+      <v-suggest :query="query" @listScroll="blurInput" @select="saveSearch" ref="suggest"></v-suggest>
     </div>
   </div>
 </template>
@@ -46,20 +47,14 @@ import searchBox from '@/components/searchBox'
 import scroll from '@/components/scroll'
 import searchList from '@/components/searchList'
 import suggest from '@/components/suggest'
+import api from '@/api'
+import { mapGetters } from 'vuex'
+import { searchMixin } from '@/common/mixin.js'
 export default {
   data () {
     return {
-      query: '',
-      hotKey: [
-        {first: '许嵩新歌发布'},
-        {first: '小康新av发布'},
-        {first: '志玲姐姐新作品发布'},
-        {first: '泷泽萝拉新歌发布'},
-        {first: '蜗牛新笔记本发布'},
-      ],
       shortcut: [],
-      refreshDelay: 100,
-      searchHistory: ['laji']
+      hotKey: []
     }
   },
   components: {
@@ -68,14 +63,19 @@ export default {
     'v-search-list': searchList,
     'v-suggest': suggest
   },
+  mixins: [searchMixin],
   methods: {
-    showConfirm () {
-
-    },
-    onQueryChange (query) {
-      // console.log(query)
-      this.query = query
+    showConfirm () {},
+    _getHotKey () {
+      api.HotSearchKey().then((res) => {
+        if (res.code === 200) {
+          this.hotKey = res.result.hots.slice(0, 10)
+        }
+      })
     }
+  },
+  created () {
+    this._getHotKey()
   }
 }
 </script>

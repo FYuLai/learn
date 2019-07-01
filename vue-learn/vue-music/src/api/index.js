@@ -56,5 +56,20 @@ export default {
   // 歌曲搜索
   MusicSearch (params) {
     return fetchGet('/search', params)
+  },
+  // 热搜
+  HotSearchKey () {
+    return fetchGet('/search/hot')
+  },
+  // 歌词
+  MusicLyric(){
+    return fetchGet('./lyric',{
+      id
+    })
+  },
+  MusicUrl (id) {
+    return fetchGet('/song/url', {
+      id
+    })
   }
 }

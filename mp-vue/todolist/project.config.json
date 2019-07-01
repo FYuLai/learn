@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxc57c88399c4ef81f",
 	"projectname": "todolist",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

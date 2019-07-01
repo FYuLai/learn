@@ -1,7 +1,12 @@
+
 <template>
   <div class="search-list" v-show="searches.length">
     <transition-group name="list" tag="ul">
-      <li class="search-item" v-for= "item in searches" :key="item" @click="selectItem(item)">
+      <li class="search-item" 
+      v-for="item in searches" 
+      :key="item" 
+      @click="selectItem(item)"
+      >
         <span class="text">{{item}}</span>
         <span class="icon-box" @click.stop="deleteOne(item)">
           <i class="icon">&#xe656;</i>
@@ -20,16 +25,12 @@ export default {
     }
   },
   methods: {
-    selectItem () {
-
-    },
-    deleteOne () {
-
+    selectItem (item) {
+      this.$emit('select', item)
     }
   }
 }
 </script>
-
 <style lang="stylus" scoped>
 .search-list 
   .search-item 

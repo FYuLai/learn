@@ -62,8 +62,7 @@ export default {
   computed: {
     ...mapGetters([
       'showSidebar'
-    ]),
-    
+    ])
   },
   methods: {
     _hidebar () {
