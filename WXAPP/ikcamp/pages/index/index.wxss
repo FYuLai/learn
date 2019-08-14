@@ -1,12 +1,12 @@
 .wrapper .group {
   padding: 0 36rpx 10rpx 36rpx;
   background: #fff;
-  margin-bottom: 16rpx;
+  margin-bottom: 16rpx
 }
 
 .wrapper .group-bar {
   height: 114rpx;
-  text-align: center;
+  text-align: center
 }
 
 .wrapper .group-title {
@@ -20,41 +20,41 @@
   font-size: 28rpx;
   color: #ccc;
   margin-top: 38rpx;
-  overflow: visible;
+  overflow: visible
 }
 
-.wrapper .group-title:after, .wrapper .group-title:before {
+.wrapper .group-title:after,.wrapper .group-title:before {
   content: '';
   top: 18rpx;
   position: absolute;
   width: 32rpx;
   height: 1rpx;
-  transform: scaleY(0.5);
-  border-bottom: solid 1px #efefef;
+  transform: scaleY(.5);
+  border-bottom: solid 1px #efefef
 }
 
 .wrapper .group-title:before {
-  left: -56rpx;
+  left: -56rpx
 }
 
 .wrapper .group-title:after {
-  right: -56rpx;
+  right: -56rpx
 }
 
 .wrapper .group-title.on {
   border: solid 1rpx #ffc60e;
-  color: #ffc60e;
+  color: #ffc60e
 }
 
-.wrapper .group-title.on:after, .wrapper .group-title.on:before {
-  border-bottom: solid 1px #ffc60e;
+.wrapper .group-title.on:after,.wrapper .group-title.on:before {
+  border-bottom: solid 1px #ffc60e
 }
 
 .wrapper .group-content-item {
   position: relative;
   width: 100%;
   height: 194rpx;
-  margin-bottom: 28rpx;
+  margin-bottom: 28rpx
 }
 
 .wrapper .group-content-item-desc {
@@ -65,7 +65,7 @@
   margin-right: 300rpx;
   margin-top: 8rpx;
   overflow: hidden;
-  color: #333;
+  color: #333
 }
 
 .wrapper .group-content-item-img {
@@ -74,11 +74,11 @@
   top: 0;
   vertical-align: top;
   width: 260rpx;
-  height: 194rpx;
+  height: 194rpx
 }
 
 .wrapper .group-content-item.visited .group-content-item-desc {
-  color: #999;
+  color: #999
 }
 
 .wrapper .no-more {
@@ -87,5 +87,5 @@
   font-size: 32rpx;
   color: #ccc;
   text-align: center;
-  padding: 20rpx 0;
+  padding: 20rpx 0
 }
